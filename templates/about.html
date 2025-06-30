@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransCo - About Us</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <div class="about-container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">
+                    <span class="logo-icon">🏢</span>
+                    <span class="logo-text">TransCo</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-btn">Dashboard</a>
+                <a href="about.html" class="nav-btn active">About</a>
+                <a href="contacts.html" class="nav-btn">Contact Us</a>
+                <button class="nav-btn" onclick="logout()">Log Out</button>
+                <div class="profile-icon" onclick="toggleProfileModal()">👤</div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="content-wrapper">
+                <div class="left-section">
+                    <div class="info-card">
+                        <h2>Company Overview</h2>
+                        <p>The National Transmission Corporation (TransCo) is a government-owned and controlled corporation responsible for the operation, maintenance, and development of the country's power transmission system.</p>
+                        
+                        <h3>Our Mission</h3>
+                        <p>To provide reliable, adequate, and economical transmission of electric power throughout the Philippines while ensuring the stability and security of the power grid.</p>
+                        
+                        <h3>Our Vision</h3>
+                        <p>To be the premier transmission utility in Southeast Asia, recognized for excellence in service delivery, operational efficiency, and sustainable development.</p>
+                        
+                        <h3>Core Values</h3>
+                        <ul>
+                            <li><strong>Integrity:</strong> We conduct our business with honesty and transparency</li>
+                            <li><strong>Excellence:</strong> We strive for the highest standards in all our endeavors</li>
+                            <li><strong>Innovation:</strong> We embrace new technologies and methodologies</li>
+                            <li><strong>Sustainability:</strong> We are committed to environmental stewardship</li>
+                            <li><strong>Service:</strong> We prioritize the needs of our stakeholders</li>
+                        </ul>
+                        
+                        <h3>Key Responsibilities</h3>
+                        <ul>
+                            <li>Operation and maintenance of transmission facilities</li>
+                            <li>Planning and development of transmission infrastructure</li>
+                            <li>Ensuring grid stability and reliability</li>
+                            <li>Facilitating competitive electricity market</li>
+                            <li>Compliance with regulatory requirements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="right-section">
+                    <div class="hero-section">
+                        <h1>Empowering the Nation – Welcome to TransCo</h1>
+                        <div class="decorative-arrows">››››››</div>
+                    </div>
+                    
+                    <div class="image-container">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20%287%29-shwZ4Tdfi6p8Sf1VNToBQ6t3NHv68G.png" alt="TransCo Building" class="building-image">
+                    </div>
+                    
+                    <div class="stats-section">
+                        <div class="stat-card">
+                            <h3>25+</h3>
+                            <p>Years of Service</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>7,000+</h3>
+                            <p>Circuit Kilometers</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>99.9%</h3>
+                            <p>System Reliability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content profile-content">
+            <div class="profile-header">
+                <h2>TransCo</h2>
+            </div>
+            <div class="profile-body">
+                <h3>User Profile</h3>
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <p><strong>FULL NAME:</strong> <span id="profileName">SAMPLE FORMAT</span></p>
+                    <p><strong>EMAIL:</strong> <span id="profileEmail">SAMPLE FORMAT</span></p>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="cancel-btn" onclick="closeProfileModal()">Cancel</button>
+                <button class="logout-btn" onclick="logout()">Log out</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="about.js"></script>
+</body>
+</html>
