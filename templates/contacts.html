@@ -8,6 +8,12 @@
 </head>
 <body>
     <div class="contacts-container">
+        <!-- Background Geometric Shapes -->
+        <div class="bg-shape triangle-1"></div>
+        <div class="bg-shape triangle-2"></div>
+        <div class="bg-shape triangle-3"></div>
+        <div class="bg-shape triangle-4"></div>
+        
         <header class="header">
             <div class="logo-section">
                 <div class="logo">
@@ -17,7 +23,6 @@
             </div>
             
             <nav class="nav-menu">
-                <a href="dashboard.html" class="nav-btn">Dashboard</a>
                 <a href="about.html" class="nav-btn">About</a>
                 <a href="contacts.html" class="nav-btn active">Contact Us</a>
                 <button class="nav-btn" onclick="logout()">Log Out</button>
@@ -27,8 +32,6 @@
 
         <main class="main-content">
             <div class="contact-card">
-                <div class="decorative-arrows top-arrows">››››››</div>
-                
                 <h1>GET IN TOUCH!</h1>
                 
                 <div class="contact-methods">
@@ -36,55 +39,23 @@
                         <div class="contact-icon email-icon">
                             <span>✉</span>
                         </div>
-                        <h3>Email Us</h3>
-                        <p>Send us an email for inquiries</p>
                     </div>
                     
                     <div class="contact-item" onclick="openContactModal('location')">
                         <div class="contact-icon location-icon">
                             <span>📍</span>
                         </div>
-                        <h3>Visit Us</h3>
-                        <p>Find our office location</p>
                     </div>
                     
                     <div class="contact-item" onclick="openContactModal('phone')">
                         <div class="contact-icon phone-icon">
                             <span>📞</span>
                         </div>
-                        <h3>Call Us</h3>
-                        <p>Speak with our support team</p>
                     </div>
                 </div>
                 
-                <div class="decorative-arrows bottom-arrows">››››››</div>
-            </div>
-            
-            <!-- Contact Information Section -->
-            <div class="contact-info-section">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Head Office</h3>
-                        <p>National Transmission Corporation</p>
-                        <p>Quezon Avenue, Diliman</p>
-                        <p>Quezon City, Philippines 1101</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Business Hours</h3>
-                        <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                        <p>Saturday: 8:00 AM - 12:00 PM</p>
-                        <p>Sunday: Closed</p>
-                        <p>Emergency Hotline: 24/7</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Departments</h3>
-                        <p>IT Support: ext. 101</p>
-                        <p>IS Support: ext. 102</p>
-                        <p>Customer Service: ext. 103</p>
-                        <p>Technical Support: ext. 104</p>
-                    </div>
+                <div class="arrow-decoration">
+                    <img src="images/arrows.png" alt="Arrows" class="arrow-image">
                 </div>
             </div>
         </main>
