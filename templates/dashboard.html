@@ -8,6 +8,12 @@
 </head>
 <body>
     <div class="dashboard-container">
+        <!-- Background Geometric Shapes -->
+        <div class="bg-shape triangle-1"></div>
+        <div class="bg-shape triangle-2"></div>
+        <div class="bg-shape triangle-3"></div>
+        <div class="bg-shape triangle-4"></div>
+        
         <header class="header">
             <div class="logo-section">
                 <div class="logo">
@@ -22,10 +28,8 @@
                 <button class="nav-btn" onclick="logout()">Log Out</button>
                 
                 <div class="print-dropdown">
-                    <button class="print-btn" onclick="togglePrintDropdown()">
-                        Print ▼
-                    </button>
-                    <div class="dropdown-content" id="printDropdown">
+                    <button class="print-btn" onclick="togglePrintDropdown()">Print ▼</button>
+                    <div id="printDropdown" class="dropdown-content">
                         <a href="#" onclick="printReport('support')">IS Support</a>
                         <a href="#" onclick="printReport('it-support')">IT Support</a>
                     </div>
@@ -37,42 +41,103 @@
         </header>
 
         <main class="main-content">
-            <div class="table-container">
-                <table class="requests-table" id="requestsTable">
-                    <thead>
-                        <tr>
-                            <th>REQUESTOR</th>
-                            <th>COST CENTER</th>
-                            <th>DATE REQUEST</th>
-                            <th>TIME OF REQUEST</th>
-                            <th>SUPPORT DESK</th>
-                            <th>DATE ACKNOWLEDGE AND ACKNOWLEDGE BY</th>
-                            <th>DATE CLOSED</th>
-                            <th>NAME OF TECH SUPPORT</th>
-                            <th>REMARKS</th>
-                            <th>ACTIONS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <tr>
-                            <td>SAMPLE REQUESTOR CARD</td>
-                            <td>CC001</td>
-                            <td>2024-01-15</td>
-                            <td>09:30 AM</td>
-                            <td>IT Support</td>
-                            <td>2024-01-15 - John Doe</td>
-                            <td>2024-01-16</td>
-                            <td>Jane Smith</td>
-                            <td>Resolved successfully</td>
-                            <td>
-                                <button class="edit-btn" onclick="editRequest(0)">Edit</button>
-                                <button class="delete-btn" onclick="deleteRequest(0)">Delete</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="content-card">
+                <div class="table-container">
+                    <table class="requests-table">
+                        <thead>
+                            <tr>
+                                <th>REQUESTOR</th>
+                                <th>COST CENTER</th>
+                                <th>DATE REQUEST</th>
+                                <th>TIME OF REQUEST</th>
+                                <th>SUPPORT DESK</th>
+                                <th>DATE ACKNOWLEDGE AND ACKNOWLEDGE BY</th>
+                                <th>DATE CLOSED</th>
+                                <th>NAME OF TECH SUPPORT</th>
+                                <th>REMARKS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td>SAMPLE REQUESTOR CARD</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </main>
+    </div>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRequestModal()">&times;</span>
+            <h2 id="modalTitle">Add New Request</h2>
+            <form id="requestForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="requestor">Requestor</label>
+                        <input type="text" id="requestor" name="requestor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="costCenter">Cost Center</label>
+                        <input type="text" id="costCenter" name="costCenter">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateRequest">Date Request</label>
+                        <input type="date" id="dateRequest" name="dateRequest" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeRequest">Time Request</label>
+                        <input type="time" id="timeRequest" name="timeRequest" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="supportDesk">Support Desk</label>
+                    <select id="supportDesk" name="supportDesk" required>
+                        <option value="">Select Support Desk</option>
+                        <option value="IT Support">IT Support</option>
+                        <option value="IS Support">IS Support</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dateAcknowledge">Date Acknowledge</label>
+                    <input type="date" id="dateAcknowledge" name="dateAcknowledge">
+                </div>
+                
+                <div class="form-group">
+                    <label for="dateClosed">Date Closed</label>
+                    <input type="date" id="dateClosed" name="dateClosed">
+                </div>
+                
+                <div class="form-group">
+                    <label for="techSupport">Tech Support</label>
+                    <input type="text" id="techSupport" name="techSupport">
+                </div>
+                
+                <div class="form-group">
+                    <label for="remarks">Remarks</label>
+                    <textarea id="remarks" name="remarks" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
     </div>
 
     <!-- Profile Modal -->
@@ -93,70 +158,6 @@
                 <button class="cancel-btn" onclick="closeProfileModal()">Cancel</button>
                 <button class="logout-btn" onclick="logout()">Log out</button>
             </div>
-        </div>
-    </div>
-
-    <!-- Add/Edit Request Modal -->
-    <div id="requestModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRequestModal()">&times;</span>
-            <h2 id="modalTitle">Add New Request</h2>
-            <form id="requestForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="requestor">Requestor</label>
-                        <input type="text" id="requestor" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="costCenter">Cost Center</label>
-                        <input type="text" id="costCenter" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dateRequest">Date Request</label>
-                        <input type="date" id="dateRequest" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="timeRequest">Time of Request</label>
-                        <input type="time" id="timeRequest" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="supportDesk">Support Desk</label>
-                        <select id="supportDesk" required>
-                            <option value="">Select Support Type</option>
-                            <option value="IT Support">IT Support</option>
-                            <option value="IS Support">IS Support</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="dateAcknowledge">Date Acknowledge</label>
-                        <input type="date" id="dateAcknowledge">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dateClosed">Date Closed</label>
-                        <input type="date" id="dateClosed">
-                    </div>
-                    <div class="form-group">
-                        <label for="techSupport">Name of Tech Support</label>
-                        <input type="text" id="techSupport">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="remarks">Remarks</label>
-                    <textarea id="remarks" rows="3"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Save Request</button>
-            </form>
         </div>
     </div>
 
