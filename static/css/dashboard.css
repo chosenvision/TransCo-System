@@ -60,7 +60,9 @@ body::before {
 }
 
 .logo-icon {
-    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .logo-text {
