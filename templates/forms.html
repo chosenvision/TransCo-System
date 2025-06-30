@@ -8,7 +8,15 @@
 </head>
 <body>
     <div class="forms-container">
-        <div class="background-pattern"></div>
+        <!-- Background Geometric Shapes -->
+        <div class="bg-shape triangle-1"></div>
+        <div class="bg-shape triangle-2"></div>
+        <div class="bg-shape triangle-3"></div>
+        
+        <!-- Hexagonal Pattern Background -->
+        <div class="hexagon-pattern left-pattern">
+            <img src="images/hexagon-pattern.png" alt="Hexagon Pattern" class="pattern-image">
+        </div>
         
         <div class="forms-card">
             <div class="close-btn" onclick="goToDashboard()">&times;</div>
@@ -90,7 +98,9 @@
                 </form>
             </div>
             
-            <div class="decorative-arrows">››››››</div>
+            <div class="arrow-decoration">
+                <img src="images/arrows.png" alt="Arrows" class="arrow-image">
+            </div>
         </div>
     </div>
 
@@ -112,16 +122,6 @@
                 <button class="cancel-btn" onclick="closeProfileModal()">Cancel</button>
                 <button class="logout-btn" onclick="logout()">Log out</button>
             </div>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content success-content">
-            <div class="success-icon">✓</div>
-            <h2>Form Submitted Successfully!</h2>
-            <p>Your request has been submitted and will be processed shortly.</p>
-            <button class="ok-btn" onclick="closeSuccessModal()">OK</button>
         </div>
     </div>
 
