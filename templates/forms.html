@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransCo - Forms</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+    <div class="forms-container">
+        <div class="background-pattern"></div>
+        
+        <div class="forms-card">
+            <div class="close-btn" onclick="goToDashboard()">&times;</div>
+            
+            <div class="form-header">
+                <h1>FORMS</h1>
+                <div class="profile-icon" onclick="toggleProfileModal()">👤</div>
+            </div>
+            
+            <div class="form-scroll-container">
+                <form id="requestForm" class="request-form">
+                    <div class="form-group">
+                        <label for="requestor">REQUESTOR</label>
+                        <input type="text" id="requestor" name="requestor" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="requestDate">REQUEST DATE & TIME</label>
+                            <input type="date" id="requestDate" name="requestDate" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="requestTime">&nbsp;</label>
+                            <input type="time" id="requestTime" name="requestTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <textarea id="subject" name="subject" placeholder="Enter subject" rows="1" class="expandable-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="details">DETAILS</label>
+                        <textarea id="details" name="details" placeholder="Enter details" rows="3" class="expandable-textarea" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">CATEGORY</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Hardware Issue">Hardware Issue</option>
+                            <option value="Software Issue">Software Issue</option>
+                            <option value="Network Issue">Network Issue</option>
+                            <option value="System Access">System Access</option>
+                            <option value="Email Issue">Email Issue</option>
+                            <option value="Printer Issue">Printer Issue</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dateAcknowledge">DATE ACKNOWLEDGE</label>
+                        <input type="date" id="dateAcknowledge" name="dateAcknowledge">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="actionTaken">ACTION TAKEN</label>
+                        <textarea id="actionTaken" name="actionTaken" placeholder="Type here..." rows="4" class="expandable-textarea"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="dateAcknowledge2">DATE ACKNOWLEDGE</label>
+                            <input type="date" id="dateAcknowledge2" name="dateAcknowledge2">
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="timeAcknowledge">&nbsp;</label>
+                            <input type="time" id="timeAcknowledge" name="timeAcknowledge">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="agent">AGENT</label>
+                        <input type="text" id="agent" name="agent" placeholder="Enter Agent">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </form>
+            </div>
+            
+            <div class="decorative-arrows">››››››</div>
+        </div>
+    </div>
 
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content profile-content">
+            <div class="profile-header">
+                <h2>TransCo</h2>
+            </div>
+            <div class="profile-body">
+                <h3>User Profile</h3>
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <p><strong>FULL NAME:</strong> <span id="profileName">SAMPLE FORMAT</span></p>
+                    <p><strong>EMAIL:</strong> <span id="profileEmail">SAMPLE FORMAT</span></p>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="cancel-btn" onclick="closeProfileModal()">Cancel</button>
+                <button class="logout-btn" onclick="logout()">Log out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">✓</div>
+            <h2>Form Submitted Successfully!</h2>
+            <p>Your request has been submitted and will be processed shortly.</p>
+            <button class="ok-btn" onclick="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+
+    <script src="forms.js"></script>
+</body>
+</html>
