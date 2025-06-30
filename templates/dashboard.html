@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransCo - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">
+                    <span class="logo-icon">🏢</span>
+                    <span class="logo-text">TransCo</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="about.html" class="nav-btn">About</a>
+                <a href="contacts.html" class="nav-btn">Contact Us</a>
+                <button class="nav-btn" onclick="logout()">Log Out</button>
+                
+                <div class="print-dropdown">
+                    <button class="print-btn" onclick="togglePrintDropdown()">
+                        Print ▼
+                    </button>
+                    <div class="dropdown-content" id="printDropdown">
+                        <a href="#" onclick="printReport('support')">IS Support</a>
+                        <a href="#" onclick="printReport('it-support')">IT Support</a>
+                    </div>
+                </div>
+                
+                <button class="add-btn" onclick="openAddModal()">+</button>
+                <div class="profile-icon" onclick="toggleProfileModal()">👤</div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="table-container">
+                <table class="requests-table" id="requestsTable">
+                    <thead>
+                        <tr>
+                            <th>REQUESTOR</th>
+                            <th>COST CENTER</th>
+                            <th>DATE REQUEST</th>
+                            <th>TIME OF REQUEST</th>
+                            <th>SUPPORT DESK</th>
+                            <th>DATE ACKNOWLEDGE AND ACKNOWLEDGE BY</th>
+                            <th>DATE CLOSED</th>
+                            <th>NAME OF TECH SUPPORT</th>
+                            <th>REMARKS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td>SAMPLE REQUESTOR CARD</td>
+                            <td>CC001</td>
+                            <td>2024-01-15</td>
+                            <td>09:30 AM</td>
+                            <td>IT Support</td>
+                            <td>2024-01-15 - John Doe</td>
+                            <td>2024-01-16</td>
+                            <td>Jane Smith</td>
+                            <td>Resolved successfully</td>
+                            <td>
+                                <button class="edit-btn" onclick="editRequest(0)">Edit</button>
+                                <button class="delete-btn" onclick="deleteRequest(0)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content profile-content">
+            <div class="profile-header">
+                <h2>TransCo</h2>
+            </div>
+            <div class="profile-body">
+                <h3>User Profile</h3>
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <p><strong>FULL NAME:</strong> <span id="profileName">SAMPLE FORMAT</span></p>
+                    <p><strong>EMAIL:</strong> <span id="profileEmail">SAMPLE FORMAT</span></p>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="cancel-btn" onclick="closeProfileModal()">Cancel</button>
+                <button class="logout-btn" onclick="logout()">Log out</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Request Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRequestModal()">&times;</span>
+            <h2 id="modalTitle">Add New Request</h2>
+            <form id="requestForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="requestor">Requestor</label>
+                        <input type="text" id="requestor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="costCenter">Cost Center</label>
+                        <input type="text" id="costCenter" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateRequest">Date Request</label>
+                        <input type="date" id="dateRequest" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeRequest">Time of Request</label>
+                        <input type="time" id="timeRequest" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="supportDesk">Support Desk</label>
+                        <select id="supportDesk" required>
+                            <option value="">Select Support Type</option>
+                            <option value="IT Support">IT Support</option>
+                            <option value="IS Support">IS Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateAcknowledge">Date Acknowledge</label>
+                        <input type="date" id="dateAcknowledge">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dateClosed">Date Closed</label>
+                        <input type="date" id="dateClosed">
+                    </div>
+                    <div class="form-group">
+                        <label for="techSupport">Name of Tech Support</label>
+                        <input type="text" id="techSupport">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="remarks">Remarks</label>
+                    <textarea id="remarks" rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Save Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
